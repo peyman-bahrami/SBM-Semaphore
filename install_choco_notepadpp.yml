@@ -1,0 +1,32 @@
+---
+- name: Install Chocolatey and Notepad++ on Windows
+  hosts: windows
+  gather_facts: no
+  vars:
+    ansible_connection: winrm
+    ansible_winrm_transport: ntlm
+    ansible_port: 5985
+    ansible_winrm_server_cert_validation: ignore
+
+  tasks:
+    - name: Install Chocolatey
+      ansible.windows.win_shell: |
+        Set-ExecutionPolicy Bypass -Scope Process -Force;
+        [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
+        if (-not (Get-Command choco.exe -ErrorAction SilentlyContinue)) {
+            iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+        }
+
+    - name: Ensure Notepad++ is installed
+      ansible.windows.win_chocolatey:
+        name: notepadplusplus
+        state: present
+
+    - name: Verify installation
+      ansible.windows.win_command: 'cmd /c "notepad++ -?"'
+      register: notepadpp_version
+      ignore_errors: yes
+
+    - name: Show Notepad++ version
+      ansible.builtin.debug:
+        var: notepadpp_version.stdout
