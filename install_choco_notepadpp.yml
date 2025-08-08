@@ -1,5 +1,5 @@
 ---
-- name: Test WinRM connectivity to Windows hosts
+- name: Install Chocolatey and Notepad++ on Windows
   hosts: windows
   gather_facts: no
   vars:
@@ -9,8 +9,21 @@
     ansible_winrm_server_cert_validation: ignore
 
   tasks:
-    - name: Ping Windows host
-      ansible.windows.win_ping:
-    - name: Ensure Chocolatey itself is installed, using community repo for the bootstrap
-      win_chocolatey:
-      name: chocolatey
+    - name: Ensure Chocolatey itself is installed
+      ansible.windows.win_chocolatey:
+        name: chocolatey
+        state: present
+
+    - name: Ensure Notepad++ is installed
+      ansible.windows.win_chocolatey:
+        name: notepadplusplus
+        state: present
+
+    - name: Verify installation
+      ansible.windows.win_command: 'cmd /c "notepad++ -?"'
+      register: notepadpp_version
+      ignore_errors: yes
+
+    - name: Show Notepad++ version
+      ansible.builtin.debug:
+        var: notepadpp_version.stdout
