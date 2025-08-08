@@ -2,6 +2,8 @@
 - name: Install Chocolatey and Notepad++ on Windows
   hosts: windows
   gather_facts: no
+  collections:
+    - ansible.windows
   vars:
     ansible_connection: winrm
     ansible_winrm_transport: ntlm
@@ -10,20 +12,11 @@
 
   tasks:
     - name: Ensure Chocolatey itself is installed
-      ansible.windows.win_chocolatey:
+      win_chocolatey:
         name: chocolatey
         state: present
 
     - name: Ensure Notepad++ is installed
-      ansible.windows.win_chocolatey:
+      win_chocolatey:
         name: notepadplusplus
         state: present
-
-    - name: Verify installation
-      ansible.windows.win_command: 'cmd /c "notepad++ -?"'
-      register: notepadpp_version
-      ignore_errors: yes
-
-    - name: Show Notepad++ version
-      ansible.builtin.debug:
-        var: notepadpp_version.stdout
