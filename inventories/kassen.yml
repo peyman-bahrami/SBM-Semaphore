@@ -1,0 +1,62 @@
+all:
+  children:
+    MS1:
+      hosts:
+        Kasse-301:
+          ansible_host: 192.168.3.20
+        Kasse-302:
+          ansible_host: 192.168.3.21
+        Kasse-320:
+          ansible_host: 192.168.3.25
+    MS2:
+      hosts:
+        Kasse-401:
+          ansible_host: 192.168.150.21
+        Kasse-402:
+          ansible_host: 192.168.150.20
+        Kasse-420:
+          ansible_host: 192.168.150.23
+    MS3:
+      hosts:
+        Kasse-601:
+          ansible_host: 192.168.140.21
+        Kasse-602:
+          ansible_host: 192.168.140.22
+        Kasse-620:
+          ansible_host: 192.168.140.23
+        Kasse-621:
+          ansible_host: 192.168.140.24
+    MS4:
+      hosts:
+        Kasse-501:
+          ansible_host: 192.168.50.21
+        Kasse-502:
+          ansible_host: 192.168.50.22
+        Kasse-503:
+          ansible_host: 192.168.50.23
+        Kasse-520:
+          ansible_host: 192.168.50.24
+        Kasse-521:
+          ansible_host: 192.168.50.26
+    MS5:
+      hosts:
+        Kasse-702:
+          ansible_host: 192.168.90.22
+        Kasse-703:
+          ansible_host: 192.168.90.23
+        Kasse-720:
+          ansible_host: 192.168.90.24
+        Kasse-721:
+          ansible_host: 192.168.90.25
+    MS6:
+      hosts:
+        Kasse-1701:
+          ansible_host: 192.168.152.21
+        Kasse-1702:
+          ansible_host: 192.168.152.22
+        1703_MS6_alt:
+          ansible_host: 192.168.152.21
+        Kasse-1720:
+          ansible_host: 192.168.152.23
+        Kasse-1721:
+          ansible_host: 192.168.152.24
