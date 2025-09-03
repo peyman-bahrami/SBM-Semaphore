@@ -55,7 +55,7 @@ all:
         Kasse-1702:
           ansible_host: 192.168.152.22
         1703_MS6_alt:
-          ansible_host: 192.168.152.21
+          ansible_host: -------------
         Kasse-1720:
           ansible_host: 192.168.152.23
         Kasse-1721:
