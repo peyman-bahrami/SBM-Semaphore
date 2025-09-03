@@ -1,6 +1,4 @@
-all:
-  children:
-    MS1:
+   test-kassen:
       hosts:
         Kasse-301:
           ansible_host: 192.168.3.20
