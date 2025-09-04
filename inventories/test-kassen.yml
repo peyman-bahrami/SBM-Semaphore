@@ -6,8 +6,3 @@ all:
       ansible_host: 192.168.3.21
     Kasse-320:
       ansible_host: 192.168.3.25
-  vars:
-    ansible_connection: winrm
-    ansible_winrm_transport: ntlm
-    ansible_port: 5985
-    ansible_winrm_server_cert_validation: ignore
