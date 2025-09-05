@@ -1,6 +1,6 @@
 ---
 - name: Install Chocolatey and Notepad++ on Windows
-  hosts: windows
+  hosts: all
   gather_facts: no
   collections:
     - ansible.windows
@@ -20,3 +20,4 @@
       win_chocolatey:
         name: notepadplusplus
         state: present
+
