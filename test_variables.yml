@@ -1,5 +1,6 @@
-- hosts: all
+- hosts: localhost
   gather_facts: no
   tasks:
-    - debug:
-        var: hostvars[inventory_hostname]
+    - name: List all vars
+      debug:
+        var: vars
