@@ -1,6 +1,6 @@
 - hosts: localhost
   gather_facts: no
   tasks:
-    - name: List all vars
+    - name: List all variables
       debug:
         var: vars
