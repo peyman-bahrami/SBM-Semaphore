@@ -2,7 +2,5 @@ all:
   hosts:
     Kasse-301:
       ansible_host: 192.168.3.20
-    Kasse-302:
-      ansible_host: 192.168.3.21
-    Kasse-320:
-      ansible_host: 192.168.3.25
+    Kasse-401:
+      ansible_host: 192.168.150.21
